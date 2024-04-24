@@ -1,5 +1,9 @@
 # Prerequisites
 *.d
+node_modules
+.DS_Store
+*.wasm
+*.abi
 
 # Compiled Object files
 *.slo
