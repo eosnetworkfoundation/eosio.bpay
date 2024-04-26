@@ -33,28 +33,30 @@ void bpay::on_transfer( const name from, const name to, const asset quantity, co
     rewards_table _rewards( get_self(), get_self().value );
     eosiosystem::system_contract::producers_table _producers( "eosio"_n, "eosio"_n.value );
 
-    // get voter secondary index
-    auto idx = _producers.get_index<"prototalvote"_n>();
+    // calculate rewards equal share for top 21 producers
+    asset reward = quantity / 21;
 
     // get producer with the most votes
-    // reverse iterator to get the last element
-    auto prod = idx.rbegin();
+    // using `by_votes` secondary index
+    auto idx = _producers.get_index<"prototalvote"_n>();
+    auto prod = idx.begin();
 
     // get top 21 producers by vote
     std::vector<name> top_producers;
-    for (int i = 0; i < 21; i++) {
+    while (true) {
+        if ( prod == idx.end() ) {
+            break;
+        }
         if ( prod->is_active == false ) {
-            prod++;
-            i--;
             continue;
         }
         top_producers.push_back(prod->owner);
-        print(i, " ", prod->owner, " ", prod->total_votes, "\n");
+        print("rank=", top_producers.size(), " producer=", prod->owner, " reward=", reward.to_string(), "\n");
+        if ( top_producers.size() == 21 ) {
+            break;
+        }
         prod++;
     }
-
-    // calculate rewards equal share for top 21 producers
-    asset reward = quantity / 21;
 
     // update rewards table
     for (auto producer : top_producers) {

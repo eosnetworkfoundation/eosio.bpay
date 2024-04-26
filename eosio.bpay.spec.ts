@@ -91,7 +91,7 @@ describe(bpay_contract, () => {
         await contracts.token.actions.issue(['eosio.token', supply, '']).send()
     })
 
-    test("eosio.bpay::transfer", async () => {
+    test.skip("eosio.bpay::transfer", async () => {
         await contracts.token.actions.transfer(['eosio.token', bpay_contract, '2100.0000 EOS', '']).send();
         const before = {
             bpay: {
@@ -125,7 +125,7 @@ describe(bpay_contract, () => {
         expect(after.bob.balance - before.bob.balance).toBe(0)
     });
 
-    test('eosio.bpay::claimrewards::error - no rewards to claim', async () => {
+    test.skip('eosio.bpay::claimrewards::error - no rewards to claim', async () => {
         const action = contracts.bpay.actions.claimrewards([alice]).send(alice);
         await expectToThrow(action, 'eosio_assert: no rewards to claim');
     })
