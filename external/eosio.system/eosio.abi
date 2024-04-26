@@ -1,0 +1,124 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.2",
+    "types": [
+        {
+            "new_type_name": "block_signing_authority",
+            "type": "variant_block_signing_authority_v0"
+        }
+    ],
+    "structs": [
+        {
+            "name": "block_signing_authority_v0",
+            "base": "",
+            "fields": [
+                {
+                    "name": "threshold",
+                    "type": "uint32"
+                },
+                {
+                    "name": "keys",
+                    "type": "key_weight[]"
+                }
+            ]
+        },
+        {
+            "name": "key_weight",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "public_key"
+                },
+                {
+                    "name": "weight",
+                    "type": "uint16"
+                }
+            ]
+        },
+        {
+            "name": "producer_info",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "total_votes",
+                    "type": "float64"
+                },
+                {
+                    "name": "producer_key",
+                    "type": "public_key"
+                },
+                {
+                    "name": "is_active",
+                    "type": "bool"
+                },
+                {
+                    "name": "url",
+                    "type": "string"
+                },
+                {
+                    "name": "unpaid_blocks",
+                    "type": "uint32"
+                },
+                {
+                    "name": "last_claim_time",
+                    "type": "time_point"
+                },
+                {
+                    "name": "location",
+                    "type": "uint16"
+                },
+                {
+                    "name": "producer_authority",
+                    "type": "block_signing_authority$"
+                }
+            ]
+        },
+        {
+            "name": "setproducer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "total_votes",
+                    "type": "float64"
+                },
+                {
+                    "name": "is_active",
+                    "type": "bool"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "setproducer",
+            "type": "setproducer",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "producers",
+            "type": "producer_info",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": [
+        {
+            "name": "variant_block_signing_authority_v0",
+            "types": ["block_signing_authority_v0"]
+        }
+    ],
+    "action_results": []
+}

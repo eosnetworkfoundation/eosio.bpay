@@ -1,9 +1,13 @@
-# Prerequisites
-*.d
+*.abi
+*.wasm
+!/external/**/*.abi
+!/external/**/*.wasm
 node_modules
 .DS_Store
-*.wasm
-*.abi
+eosc-vault.json
+
+# Prerequisites
+*.d
 
 # Compiled Object files
 *.slo
