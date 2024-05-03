@@ -2,7 +2,15 @@
 
 ## Overview
 
-The `eosio.bpay` contract handles system block pay distribution.
+The `eosio.bpay` contract handles system block pay distribution earned by fees.
+
+```mermaid
+stateDiagram-v2
+    [*] --> eosio
+    eosio --> eosio.fees
+    eosio.fees --> eosio.bpay
+    eosio.bpay --> [*]
+```
 
 ## Development and Testing
 

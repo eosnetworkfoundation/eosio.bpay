@@ -26,6 +26,8 @@ void bpay::on_transfer( const name from, const name to, const asset quantity, co
     if (from == get_self() || to != get_self()) {
         return;
     }
+    // ignore eosio system incoming transfers (caused by bpay income transfers eosio => eosio.bpay => producer)
+    if ( from == "eosio"_n) return;
 
     check( get_first_receiver() == "eosio.token"_n, "only eosio.token allowed") ;
     check( quantity.symbol == eosio::symbol("EOS", 4), "only EOS token allowed" );
