@@ -6,10 +6,13 @@ The `eosio.bpay` contract handles system block pay distribution earned by fees.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> eosio
-    eosio --> eosio.fees
+    [*] --> eosio.fees
     eosio.fees --> eosio.bpay
-    eosio.bpay --> [*]
+    eosio.bpay --> bp1
+    eosio.bpay --> bp2
+    eosio.bpay --> bp...
+    eosio.bpay --> bp20
+    eosio.bpay --> bp21
 ```
 
 ## Development and Testing
