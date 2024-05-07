@@ -5,6 +5,9 @@
 node_modules
 .DS_Store
 eosc-vault.json
+package-lock.json
+bun.lockdb
+yarn.lock
 
 # Prerequisites
 *.d
