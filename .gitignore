@@ -3,6 +3,7 @@
 !/external/**/*.abi
 !/external/**/*.wasm
 node_modules
+build
 .DS_Store
 eosc-vault.json
 package-lock.json

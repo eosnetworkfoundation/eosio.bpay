@@ -2,9 +2,9 @@
 
 ---
 spec_version: "0.2.0"
-title: claimrewards
-summary: 'Claim Rewards'
-icon: https://gateway.pinata.cloud/ipfs/QmZ4HSZDuSrZ4BHawtZRhVfwyYJ4DepNJqVDzxY59KveiM#3830f1ce8cb07f7757dbcf383b1ec1b11914ac34a1f9d8b065f07600fa9dac19
+title: Claim Rewards
+summary: '{{nowrap owner}} claims block production rewards'
+icon: https://gateway.pinata.cloud/ipfs/QmUkZgGySiqZnA4bKSwY39KzfnsearL5icErN6b2jdHvoe#9bf1cec664863bd6aaac0f814b235f8799fb02c850e9aa5da34e8a004bd6518e
 ---
 
-Claim rewards {{ owner }} has earned as a block producer.
+{{owner}} claims block production rewards accumulated through network fees.
